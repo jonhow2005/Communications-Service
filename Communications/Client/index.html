@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Live Chat</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="https://kit.fontawesome.com/03ead5dad9.js" crossorigin="anonymous"></script>
+    <!--script defer src="https://pyscript.net/alpha/pyscript.js"></script-->
+    <!--script type="py" src = "./Ipfinder.py" config='{"packages":["arrr", "numberwang"]}'></script-->
+    <!--script type="py" src = "./E2E_Manager.py" config='{"packages":["arrr", "numberwang"]}'></script-->
+</head>
+<body>
+    <nav class="nav" id="nav"> GIGACHAT 
+        <textarea id = "messageElement" placeholder="Type Here"></textarea>
+        <button id = "sendmsg">Send</button>
+    </nav>
+    <div id = "Userauthsection">
+        <label>ID:  
+        <i id = "IdDisplay">No ID</i>
+        </label>
+        <label id = "InputId">New ID
+        <input type="text" id="userID" name="uuserID" >
+        <button id="writeId">Select ID </button>
+        </label> 
+    </div>
+    <div id = "Search">
+        <label>Search</label>
+        <input type="text" id="Search" name="Search" >
+    </div>
+    <hr>
+    <div>
+        <button id = "Conversation">Contacts</button>
+        <button id = "GroupChats">GroupChats</button>
+        <button id = "Priv">Priv</button>
+        <h1 id = "Contacts">Contacts</h1>
+        <br>
+        <button id = "ScrollLeft"><=</button>
+        <div id = "Scroller">
+        <button id = "contactButton">N/A</button>
+        <button id = "contactButton">N/A</button>
+        <button id = "contactButton">N/A</button>
+        <button id = "contactButton">N/A</button>
+        <button id = "contactButton">N/A</button>
+        <button id = "contactButton">N/A</button>
+        <button id = "contactButton">N/A</button>
+        <button id = "contactButton">N/A</button>
+        </div>
+        <button id = "ScrollRight">=></button>
+    </div><hr>
+    <h1 id = "Contacts">Send Message</h1>
+    <br>
+    <div id="messageArea">
+        <textarea id = "messageElement" placeholder="Type Here"></textarea>
+        <button id = "sendmsg">Send</button>
+    </div>
+    
+<hr>
+    <div id ="chatParent">
+        <h1 class="chat" id = "publicHead">N/A</h1>
+        <p class="chat" id = "public">N/A</p>       
+    </div>    
+</label>
+    <script src="app.js"></script>
+</body>
+<hr>
+<h2>Features Overview</h2>
+<p>This platform offers robust communication capabilities, including end-to-end encrypted (E2E) chats, non-encrypted chats, and real-time audio calls. Below are the key features users interact with:</p>
+
+<hr>
+
+<h2>Account Management</h2>
+<ul>
+    <li><strong>Unique IDs</strong>: Each user is assigned a unique ID to ensure individuality.</li>
+    <li><strong>Online/Offline Status</strong>: Users can signal their availability by being online or offline.</li>
+</ul>
+
+<hr>
+
+<h2>Public Chats</h2>
+<ul>
+    <li><strong>Message Handling</strong>: Messages are sent to all participants and updated in real-time.</li>
+    <li><strong>Hosting Costs</strong>: Users can host chats for a cryptocurrency fee.</li>
+</ul>
+
+<hr>
+
+<h2>Audio Calls</h2>
+<ul>
+    <li><strong>Real-Time Calls</strong>: Audio is transmitted in real time for seamless communication.</li>
+    <li><strong>Priority Channels</strong>: Users can pay for priority access to improve call quality.</li>
+</ul>
+
+<hr>
+
+<h2>Conversations</h2>
+<ul>
+    <li><strong>Message Delivery</strong>: Messages are sent to the server and then delivered to the recipient upon availability.</li>
+    <li><strong>Confirmation</strong>: Senders are notified once messages are received by the recipient.</li>
+</ul>
+
+<hr>
+
+<h2>Key Sending and Private Chats</h2>
+<ul>
+    <li><strong>Key Sharing</strong>: Users can exchange keys to enable E2E encryption.</li>
+    <li><strong>Private Messaging</strong>: Messages are encrypted and decrypted using shared keys for secure communication.</li>
+</ul>
+
+<hr>
+
+<h2>Security and Privacy Commitment</h2>
+<p>This platform ensures a balance of flexibility and privacy for both secure and casual communication.</p>
+
+<footer>
+    <label>Your Ip:</label><br>
+    <embed src="Ip_File.html" width="100" height="35" >
+</footer>
