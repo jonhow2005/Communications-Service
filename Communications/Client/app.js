@@ -4,12 +4,13 @@ let splitdata = [];
 let n = 0
 let Contacts = [];
 let chatType = ""
-
+const commands = [0,userAuth,2,3,4,5,6,7,8,9,10,11,UpdateContacts,ChatUpdate,UpdateContacts,UpdateContacts]
 function excecutecommand(command, info) {
   
   if (command == "1") {
     userAuth(info);
 }
+if(command == "2")
 if(command == "12" || command == "14" || command == "15"){
   UpdateContacts(info);
 }
@@ -50,6 +51,9 @@ function scroll(left,right) {
 socket.onopen = () => { 
     console.log('WebSocket connected');
     readid()
+    genkey()
+    GetContacts()
+
 };
 socket.addEventListener("message", (event) => {
   i = event.data.indexOf(' '); 
@@ -64,9 +68,53 @@ function getip(){
 }
 
 function readid(){
-usermessage = "1"
-socket.send(usermessage, String);
-}
+  usermessage = "1"
+  socket.send(usermessage, String);
+  }
+
+  
+  function saveContact(){
+    usermessage = document.getElementById("search").value;
+    usermessage = "16 " + usermessage + " Contacts";   
+    socket.send(usermessage, String)
+  }
+
+  function savebyKey(){
+    usermessage = document.getElementById("pearch").value + " " + document.getElementById("pearchey").value;
+    usermessage = "19 " + usermessage;   
+    socket.send(usermessage, String)
+  }
+
+  function saveGC(){
+    usermessage = document.getElementById("search").value;
+    usermessage = "16 " + usermessage + " GroupChat";   
+    socket.send(usermessage, String)
+  }
+
+  function initPrivChat(){
+    usermessage = document.getElementById("search").value;
+    usermessage = "16 " + usermessage + " privateChats";  
+    socket.send(usermessage, String)
+  }
+  
+  function sendkey(){
+    usermessage = document.getElementById("search").value;
+    usermessage = "6 " + usermessage;  
+    socket.send(usermessage, String)
+  }
+
+  function sendmsg(){
+    usermessage = document.getElementById("messageElement").value+ " "+ document.getElementById("publicHead").innerHTML;
+    usermessage = "8 " + Contacts.indexOf(document.getElementById("publicHead").innerHTML) + usermessage;   
+    socket.send(usermessage, String)
+  }
+
+  function sendmsg(){
+    usermessage = document.getElementById("messageElement").value+ " "+ document.getElementById("publicHead").innerHTML;
+    usermessage = "4 " + usermessage;   
+    socket.send(usermessage, String)
+  }
+    
 
 var elements = document.querySelectorAll("#contactButton");
 
@@ -91,7 +139,8 @@ document.getElementById("writeId").onclick = function(){
 usermessage = document.getElementById("userID").value;
 usermessage = "2 " + usermessage 
 socket.send(usermessage, String)
-getip()
+getip();
+genkey();
 };
 
 socket.onerror = (error) => {
@@ -99,7 +148,7 @@ socket.onerror = (error) => {
 }; 
 
 
-//Unused Code
+//IGNORE BELOW
 //const fs = require("fs");
 //fs.readFile(file.txt," "))
 //                      ^any encoding
@@ -131,6 +180,7 @@ function GetGroupContacts(){
 function GetPrivContacts(){
   socket.send("15")
   chatType = "Priv"
+
 } 
 
 
@@ -139,3 +189,8 @@ document.getElementById("Priv").addEventListener("click", function () {GetPrivCo
 document.getElementById("GroupChats").addEventListener("click", function () {GetGroupContacts()});
 document.getElementById("ScrollRight").addEventListener("click", function () {scroll(false,true)});
 document.getElementById("ScrollLeft").addEventListener("click", function () {scroll(true,false)});
+document.getElementById("sendmsg").addEventListener("click", function () {sendmsg()});
+document.getElementById("addButton").addEventListener("click", function () {saveContact()});
+document.getElementById("sendButton").addEventListener("click", function () {sendkey()});
+document.getElementById("privButton").addEventListener("click", function () {initPrivChat()});
+document.getElementById("keyprivButton").addEventListener("click", function () {savebyKey()});

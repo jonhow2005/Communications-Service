@@ -5,35 +5,49 @@
     <meta charset="utf-8" />
     <title>Live Chat</title>
     <link rel="stylesheet" href="styles.css"/>
-    <script src="https://kit.fontawesome.com/03ead5dad9.js" crossorigin="anonymous"></script>
     <!--script defer src="https://pyscript.net/alpha/pyscript.js"></script-->
     <!--script type="py" src = "./Ipfinder.py" config='{"packages":["arrr", "numberwang"]}'></script-->
     <!--script type="py" src = "./E2E_Manager.py" config='{"packages":["arrr", "numberwang"]}'></script-->
 </head>
 <body>
     <nav class="nav" id="nav"> GIGACHAT 
-        <textarea id = "messageElement" placeholder="Type Here"></textarea>
-        <button id = "sendmsg">Send</button>
     </nav>
-    <div id = "Userauthsection">
-        <label>ID:  
-        <i id = "IdDisplay">No ID</i>
-        </label>
+    <hr>
+    <div id = "Userauth" class="section">
+        <label>ID:<i id = "IdDisplay">No ID</i></label>
         <label id = "InputId">New ID
         <input type="text" id="userID" name="uuserID" >
         <button id="writeId">Select ID </button>
         </label> 
     </div>
-    <div id = "Search">
+    <hr>
+    <div id = "Search" class="section">
         <label>Search</label>
-        <input type="text" id="Search" name="Search" >
+        <input type="text" id="search" name="Search" >
+        <button id="addButton">Add/Join</button>
+        <button id="sendButton">Send Key</button>
     </div>
     <hr>
-    <div>
+    <div id="Key" class="section">
+        <h1>Key</h1>
+        <p>Key</p>
+    </div>
+    <hr>
+    <div id="Privadd"  class="section">
+        <h1>New Private User</h1>
+        <input type="text" id="pearch" name="Search" placeholder="Id" >
+        <br>
+        <br>
+        <input type="text" id="pearchey" name="Search" placeholder="Key">
+        <br><br>
+        <button id="keyprivButton">Add Private</button>
+    </div>
+    <hr>
+    <div id="Contacts" class="section">
         <button id = "Conversation">Contacts</button>
         <button id = "GroupChats">GroupChats</button>
         <button id = "Priv">Priv</button>
-        <h1 id = "Contacts">Contacts</h1>
+        <h1 id = "ContactHeader">Contacts</h1>
         <br>
         <button id = "ScrollLeft"><=</button>
         <div id = "Scroller">
@@ -47,19 +61,23 @@
         <button id = "contactButton">N/A</button>
         </div>
         <button id = "ScrollRight">=></button>
-    </div><hr>
-    <h1 id = "Contacts">Send Message</h1>
+    </div>
+    <hr>
+    <div id="Message" class="section">
+    <h1>Send Message</h1>
     <br>
     <div id="messageArea">
         <textarea id = "messageElement" placeholder="Type Here"></textarea>
         <button id = "sendmsg">Send</button>
     </div>
-    
-<hr>
+    </div>
+    <hr>
+    <div  id= "Chat" class="section">    
     <div id ="chatParent">
         <h1 class="chat" id = "publicHead">N/A</h1>
         <p class="chat" id = "public">N/A</p>       
-    </div>    
+    </div>  
+    </div>
 </label>
     <script src="app.js"></script>
 </body>

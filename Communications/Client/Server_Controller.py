@@ -5,6 +5,7 @@ from websockets.asyncio.server import serve
 import Server_Interface
 sendbool = False
 globalmessage = ''
+#V2 update: Clean file, integreate useful  unused code 
 #Not used
 def unused_server_method():
     # Create a socket object
@@ -47,9 +48,10 @@ async def echo(websocket):
         await websocket.send(globalmessage)
         sendbool = False
     async for message in websocket:
-        print(f"Received message from client: {message}")
+        print(f"Received message from frontend: {message}")
         message = Server_Interface.receiveCommand(message)
-        print("sending", message)
+        print("Command Excecuted")
+        print("sending to frontend", message)
         if message != None:
             await websocket.send(message) 
         

@@ -5,47 +5,42 @@
   scroll-behavior: smooth;
 }
 
-#chatParent {
-  white-space: pre-wrap;
-}
-
-#Search {
-  margin-bottom: 20px;
-}
-
 body {
+  position: relative;
   height: 100%;
   width: 100%;
   background-color: transparent;
-  background-image: linear-gradient(rgb(255, 255, 255), rgb(38, 56, 100), rgb(0, 32, 114), white);
+  background-image: white;
   font-size: 10px;
   justify-content:space-evenly;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 } 
 
-#messageArea {
-  display:flex;
-}
-#messageArea.nth-child {
-  margin: 10px;
-  position: sticky;
+.section{
+  display: inline;
+  height: auto;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.5s;
 }
 
+
 nav {
-  border-width: 15px;
-  border-radius: 0%;
-  border-color: white;  
-  width: 100%;
+  border-width:     15px;
+  border-radius:      0%;
+  border-color:  white;  
+  width:            100%;
   background:transparent;
-  height: 80px;
-  display: inline;
-  color: #ffffff;
-  justify-content: left;
-  align-items: center;
-  font-size: 30px;
+  height:           80px;
+  display:        inline;
+  color:         black;
+  justify-content:  left;
+  align-items:    center;
+  font-size:        30px;
   position: sticky;
   top: 0;
 }  
+
 button{
   border-width: 1px;
   border-radius: 0%;
@@ -54,14 +49,40 @@ button{
   color: white;
 }
 
-#Userauthsection {
-  height: 50px;
+#Userauth {
   font-size: 15px;
   display: flex;
-  margin-top: 20px;
-  margin-bottom: 0px;
 }
 
+#chatParent {
+  white-space: pre-wrap;
+}
+#Key{
+  display: block;
+}
+#Search {
+  display: block;
+}
+
+#Message{
+  display: block;
+}
+#Contacts{
+  display: block;
+}
+
+#Privadd{
+  display: block;
+}
+#messageArea {
+  display:grid ;
+  position: sticky;
+  top: 0px;
+}
+
+#Chat{
+  display: block;
+}
 footer {
   height: 100px;
   background-color: rgb(255, 255, 255);
@@ -78,6 +99,10 @@ footer {
   font-size: 10px;
   color: #ffffff;
 } 
+
+::-webkit-scrollbar{
+  display: hidden;
+}
   
 #Scroller{
   display:inline;

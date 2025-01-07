@@ -26,9 +26,13 @@ def GenerateKey(*args):
     key = ""
     for x in keyarray:
         key = str(str(key) + str(x))
-    with open("Key.txt", "w") as keyfile:
-        keyfile.write(key)
-    
+    try:
+        open("Key.txt", "r").close
+    except:
+        with open("Key.txt", "w") as keyfile:
+            keyfile.write(key)
+            keyfile.close()
+    return open("Key.txt", "r").read()
 
 def dekey(text,array):
     global keyarray
@@ -45,34 +49,34 @@ def dekey(text,array):
             array.append(int(x))
     keyarray = array
     
-def decryptreversal(message):
+def decryptreversal(message ,*args):
    versedmessage = str("")
    for char in message:
-        versedmessage = str(char + versedmessage)
+        versedmessage = str(char + versedmessage ,*args)
    return versedmessage
 
-def deceasarcypher(message):
+def deceasarcypher(message ,*args):
     r = int(keyarray[0])
     ceasarmessage = str("")
     for char in message:
         letter = ord(char)-r
         letter = chr(letter)
         ceasarmessage = str(ceasarmessage + letter)
-    return(ceasarmessage)
+    return(ceasarmessage ,*args)
 
-def depolygraph(message):
+def depolygraph(message ,*args):
     polymessage = str("")
-    for char in str(message):
+    for char in str(message ,*args):
         letter = int(ord(char))
         letter = keyarray.index(letter)
         letter = chr(letter+32-4)
         polymessage = str(polymessage + letter)
-    return(polymessage)
+    return(polymessage ,*args)
 
-
-def Decrypt(message):
+def Decrypt(message,*args):
     with open('Key.txt') as f:
         lines = f.readlines()
+        f.close
     lines = str(lines)
     lines = lines.replace("'", "")
     lines = lines.replace("[", "")
@@ -88,14 +92,14 @@ def Decrypt(message):
     output = decryptreversal(output)
     return(output)
                 
-def reverse(message):
+def reverse(message ,*args):
     reversedmessage = str("")
     for char in message:
-        reversedmessage = str((char + reversedmessage))
+        reversedmessage = str((char + reversedmessage ,*args))
     message = reversedmessage
     return message
 
-def cCypher(message):
+def cCypher(message ,*args):
     global keyarray
     r = int(keyarray[0])     
     ceasarmessage = str("")
@@ -106,7 +110,7 @@ def cCypher(message):
     message = ceasarmessage
     return message
      
-def polygraph(message):
+def polygraph(message ,*args):
     global errors
     errors = int(0)
     global keyarray
@@ -137,12 +141,12 @@ def Kumalalatest():
         savesta = savesta + (chr(x) + " " + str(x))
         x = x+1
 
-def chartest(message):
+def chartest(message ,*args):
     gooba = ("")
     for char in message:
         gooba = gooba + (int(ord(char))) + str(".")
 
-def Encrypt(keyid, message): 
+def Encrypt(keyid, message ,*args): 
     with open(f'keys/{keyid}.txt') as f:
         lines = f.readlines()
     lines = str(key) 
