@@ -16,7 +16,7 @@ def main():
     client_thread = threading.Thread(target=start_client)
     client_thread.start()
 
-    # Start server in a separate thread
+    # Start server in a --------------------------+++++++++++++++++++++++separate thread
     server_thread = threading.Thread(target=start_server)
     server_thread.start()
 

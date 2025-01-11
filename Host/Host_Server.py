@@ -3,13 +3,15 @@ import MessageManager
 import threading
 import UserManager
 import re
+
 #V2 Route All custom Modules through Import Server_Interface 
+#Replace with your server's public IP address or hostname
+#Choose a port number
 
 def main():
-    host = '192.168.56.1'  # Replace with your server's public IP address or hostname
-    port = 5550  # Choose a port number
+    host = '192.168.56.1' 
+    port = 5550  
     MessageManager.onStart(99)
-    print(MessageManager.bufferIndex)
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((host, port))
     server_socket.listen(1)
@@ -24,15 +26,12 @@ def main():
 def run_server(client_address, client_socket, server_socket):
     addrstr = client_address[0]
     UserManager.logData(addrstr)
+    clithead = threading.Thread(target=MessageManager.clearBuffer, args=(addrstr,client_socket, 2))
+    clithead.start()
     try:
         client_socket.send(f'19 {UserManager.requestUser(addrstr)}'.encode())
         print(f'Awaiting Message from: {client_address}\n')
-        
         while True:
-            try:
-                MessageManager.clearBuffer(addrstr, client_socket)
-            except:
-                pass
             data = client_socket.recv(1024)
             message = data.decode()
             print(f"Received from client: {message}")
@@ -43,7 +42,7 @@ def run_server(client_address, client_socket, server_socket):
         UserManager.delogData(addrstr)
         client_socket.close()
         print("Server Disconnected")
-    
+        
 def close_Client(client_socket, thread):
     print("4")
     thread.join

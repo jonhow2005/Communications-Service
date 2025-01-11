@@ -1,4 +1,5 @@
 from itertools import islice
+import socket
 datalog = []
 
 def requestUser(ipaddress):
@@ -33,7 +34,7 @@ def findUser(ipaddress):
             if line.find(str(ipaddress)) != -1:
                 return line.split("::-::", 1)[1]
         return "N/A"                 
-                 
+
 def logData(data):
     global datalog
     datalog.append(data)

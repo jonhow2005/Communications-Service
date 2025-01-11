@@ -21,16 +21,16 @@
         </label> 
     </div>
     <hr>
+    <div id="Key" class="section">
+        <label>Public Key:<i id = "kdis">Key</i></label>
+    </div>
+    <hr>
     <div id = "Search" class="section">
         <label>Search</label>
         <input type="text" id="search" name="Search" >
         <button id="addButton">Add/Join</button>
         <button id="sendButton">Send Key</button>
-    </div>
-    <hr>
-    <div id="Key" class="section">
-        <h1>Key</h1>
-        <p id = "kdis">Key</p>
+        <button id="privButton">Add Private</button>
     </div>
     <hr>
     <div id="Privadd"  class="section">
@@ -45,11 +45,11 @@
     </div>
     <hr>
     <div id="Contacts" class="section">
+        <h1 id = "ContactHeader">Contacts</h1>
         <button id = "Conversation">Contacts</button>
         <button id = "GroupChats">GroupChats</button>
         <button id = "Priv">Priv</button>
-        <h1 id = "ContactHeader">Contacts</h1>
-        <br>
+        <br><br>
         <button id = "ScrollLeft"><=</button>
         <div id = "Scroller">
         <button id = "contactButton">N/A</button>
@@ -81,57 +81,59 @@
     </div>
 </label>
     <script src="app.js"></script>
+    
+<div>
+    <hr>
+    <h2>Features Overview</h2>
+    <p>This platform offers robust communication capabilities, including end-to-end encrypted (E2E) chats, non-encrypted chats, and real-time audio calls. Below are the key features users interact with:</p>
+    
+    <hr>
+    
+    <h2>Account Management</h2>
+    <ul>
+        <li><strong>Unique IDs</strong>: Each user is assigned a unique ID to ensure individuality.</li>
+        <li><strong>Online/Offline Status</strong>: Users can signal their availability by being online or offline.</li>
+    </ul>
+    
+    <hr>
+    
+    <h2>Public Chats</h2>
+    <ul>
+        <li><strong>Message Handling</strong>: Messages are sent to all participants and updated in real-time.</li>
+        <li><strong>Hosting Costs</strong>: Users can host chats for a cryptocurrency fee.</li>
+    </ul>
+    
+    <hr>
+    
+    <h2>Audio Calls</h2>
+    <ul>
+        <li><strong>Real-Time Calls</strong>: Audio is transmitted in real time for seamless communication.</li>
+        <li><strong>Priority Channels</strong>: Users can pay for priority access to improve call quality.</li>
+    </ul>
+    
+    <hr>
+    
+    <h2>Conversations</h2>
+    <ul>
+        <li><strong>Message Delivery</strong>: Messages are sent to the server and then delivered to the recipient upon availability.</li>
+        <li><strong>Confirmation</strong>: Senders are notified once messages are received by the recipient.</li>
+    </ul>
+    
+    <hr>
+    
+    <h2>Key Sending and Private Chats</h2>
+    <ul>
+        <li><strong>Key Sharing</strong>: Users can exchange keys to enable E2E encryption.</li>
+        <li><strong>Private Messaging</strong>: Messages are encrypted and decrypted using shared keys for secure communication.</li>
+    </ul>
+    
+    <hr>
+    
+    <h2>Security and Privacy Commitment</h2>
+    <p>This platform ensures a balance of flexibility and privacy for both secure and casual communication.</p>
+    </div>
 </body>
-<hr>
-<h2>Features Overview</h2>
-<p>This platform offers robust communication capabilities, including end-to-end encrypted (E2E) chats, non-encrypted chats, and real-time audio calls. Below are the key features users interact with:</p>
-
-<hr>
-
-<h2>Account Management</h2>
-<ul>
-    <li><strong>Unique IDs</strong>: Each user is assigned a unique ID to ensure individuality.</li>
-    <li><strong>Online/Offline Status</strong>: Users can signal their availability by being online or offline.</li>
-</ul>
-
-<hr>
-
-<h2>Public Chats</h2>
-<ul>
-    <li><strong>Message Handling</strong>: Messages are sent to all participants and updated in real-time.</li>
-    <li><strong>Hosting Costs</strong>: Users can host chats for a cryptocurrency fee.</li>
-</ul>
-
-<hr>
-
-<h2>Audio Calls</h2>
-<ul>
-    <li><strong>Real-Time Calls</strong>: Audio is transmitted in real time for seamless communication.</li>
-    <li><strong>Priority Channels</strong>: Users can pay for priority access to improve call quality.</li>
-</ul>
-
-<hr>
-
-<h2>Conversations</h2>
-<ul>
-    <li><strong>Message Delivery</strong>: Messages are sent to the server and then delivered to the recipient upon availability.</li>
-    <li><strong>Confirmation</strong>: Senders are notified once messages are received by the recipient.</li>
-</ul>
-
-<hr>
-
-<h2>Key Sending and Private Chats</h2>
-<ul>
-    <li><strong>Key Sharing</strong>: Users can exchange keys to enable E2E encryption.</li>
-    <li><strong>Private Messaging</strong>: Messages are encrypted and decrypted using shared keys for secure communication.</li>
-</ul>
-
-<hr>
-
-<h2>Security and Privacy Commitment</h2>
-<p>This platform ensures a balance of flexibility and privacy for both secure and casual communication.</p>
-
 <footer>
     <label>Your Ip:</label><br>
-    <embed src="Ip_File.html" width="100" height="35" >
+    <embed src="Ip_File.html" width="100" height="35" id = "Embed">
 </footer>

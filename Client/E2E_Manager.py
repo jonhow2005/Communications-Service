@@ -1,7 +1,10 @@
+#V2: Use in-function KeyArrays
+#Note I wrote the encryption software I used for this program as one of my first real projects. It is outdated in compariston to my actual skills, but may have some remnants in theis altered version of it.
 import random
 keyarray = [0,0,0,0]
 
 def GenerateKey(*args):
+    global keyarray
     keyarray[1] = int(1)
     keyarray[2] = int(1)
     r = int(random.randint(0,9))
@@ -14,9 +17,11 @@ def GenerateKey(*args):
     polyrand = int(random.randint(32,126))
     while x < rounds:
         while polyarray.count(polyrand) == 0:
-            polyarray.append(polyrand)
-            polykey = str(polykey + "|"+ str(polyrand))
-            x = x+1    
+            if polyrand != 124:
+                polyarray.append(polyrand)
+                polykey = str(polykey + "|"+ str(polyrand))
+                x = x+1
+            polyrand = int(random.randint(32,99))
         if polyarray.count(polyrand) != 0:
             if int(len(polyarray)) < int(99-32):
                 polyrand = int(random.randint(32,99))
@@ -24,8 +29,7 @@ def GenerateKey(*args):
                 polyrand = int(random.randint(32,126))
     keyarray.append(str(polykey))
     key = ""
-    for x in keyarray:
-        key = str(str(key) + str(x))
+    key = "".join(map(str, keyarray))
     try:
         open("Key.txt", "r").close
     except:
@@ -34,8 +38,9 @@ def GenerateKey(*args):
             keyfile.close()
     return open("Key.txt", "r").read()
 
-def dekey(text,array):
+def dekey(text):
     global keyarray
+    array = [0,0,0,0]
     xvar = int(0)
     while xvar < 3:
         for char in text: 
@@ -45,14 +50,15 @@ def dekey(text,array):
                 break
     larray = text.split("|")
     for x in larray:
-        if int(larray.index(x)) > 0:
+        if int(larray.index(x)) >= 1:
             array.append(int(x))
+    print(array)
     keyarray = array
     
 def decryptreversal(message ,*args):
    versedmessage = str("")
    for char in message:
-        versedmessage = str(char + versedmessage ,*args)
+        versedmessage = str(char + versedmessage)
    return versedmessage
 
 def deceasarcypher(message ,*args):
@@ -65,6 +71,7 @@ def deceasarcypher(message ,*args):
     return(ceasarmessage ,*args)
 
 def depolygraph(message ,*args):
+    global keyarray
     polymessage = str("")
     for char in str(message ,*args):
         letter = int(ord(char))
@@ -74,19 +81,12 @@ def depolygraph(message ,*args):
     return(polymessage ,*args)
 
 def Decrypt(message,*args):
+    global keyarray
     with open('Key.txt') as f:
         lines = f.readlines()
         f.close
-    lines = str(lines)
-    lines = lines.replace("'", "")
-    lines = lines.replace("[", "")
-    lines = lines.replace("]", "")
-    lines = lines.replace(")", "")
-    lines = lines.replace("(", "")
-    lines = lines.replace(",", "")
-    lines = lines.replace(" ", "")
     key = lines
-    dekey(key,keyarray)
+    dekey(key)
     output = depolygraph(message)
     output = deceasarcypher(output)
     output = decryptreversal(output)
@@ -95,7 +95,7 @@ def Decrypt(message,*args):
 def reverse(message ,*args):
     reversedmessage = str("")
     for char in message:
-        reversedmessage = str((char + reversedmessage ,*args))
+        reversedmessage = str((char + reversedmessage))
     message = reversedmessage
     return message
 
@@ -130,7 +130,7 @@ def polygraph(message ,*args):
         else:
             errors = errors + 1
     message = polymessage
-    print(errors + " errors")
+    print(f'{errors} errors')
     return message
 
 def Kumalalatest():
@@ -147,22 +147,20 @@ def chartest(message ,*args):
         gooba = gooba + (int(ord(char))) + str(".")
 
 def Encrypt(keyid, message ,*args): 
-    with open(f'keys/{keyid}.txt') as f:
-        lines = f.readlines()
-    lines = str(key) 
-    lines = lines.replace("'", "")
-    lines = lines.replace("[", "")
-    lines = lines.replace("]", "")
-    lines = lines.replace(")", "")
-    lines = lines.replace("(", "")
-    lines = lines.replace(",", "")
-    lines = lines.replace(" ", "")
+    global keyarray
+    with open(f'Data/keys/{keyid}.txt') as f:
+        lines = f.read()
     #print(lines)
     key = lines
-    dekey(key,keyarray)
+    dekey(key)
+    print(message)
     output = reverse(message)
+    print(f'reversed: {output}')
     output = cCypher(output)
-    return polygraph(output) 
+    print(f'roated: {output}')
+    output = polygraph(output)
+    print(f'polygraphed: {output}')
+    return output
     
 if __name__ == "__main__":
     GenerateKey()

@@ -2,7 +2,7 @@
 def GetContacts():
     try:
         Contacts = ""
-        with open(f'Contacts.txt','r') as f:
+        with open(f'Data/Contacts.txt','r') as f:
             Contacts = f.read()
             return Contacts
     except FileNotFoundError:
@@ -12,7 +12,7 @@ def GetContacts():
 def GetGC():
     try:
         Contacts = ""
-        with open(f'GroupChats.txt','r') as f:
+        with open(f'Data/GroupChats.txt','r') as f:
             Contacts = f.read()
             return Contacts
     except FileNotFoundError:
@@ -22,7 +22,7 @@ def GetGC():
 def GetPrivs():
     try:
         Contacts = ""
-        with open(f'privateChats.txt','r') as f:
+        with open(f'Data/privateChats.txt','r') as f:
             Contacts = f.read()
             return Contacts
     except FileNotFoundError:
@@ -31,7 +31,7 @@ def GetPrivs():
     
 def SaveContact(ContactID, type):
     try:
-        with open(f'{type}.txt','a') as f:
+        with open(f'Data/{type}.txt','a') as f:
             f.write(ContactID + ' ')
     except Exception as e:
         print(f"Error saving contact: {e}")
