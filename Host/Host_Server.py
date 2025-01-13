@@ -9,7 +9,7 @@ import re
 #Choose a port number
 
 def main():
-    host = '192.168.56.1' 
+    host = '0.0.0.0' 
     port = 5550  
     MessageManager.onStart(99)
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
