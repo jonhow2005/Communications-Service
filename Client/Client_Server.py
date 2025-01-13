@@ -4,7 +4,7 @@ import Server_Interface
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 
 def clntfunc():
-    host = '192.168.56.1'  # Replace with the server's public IP address or hostname
+    host = '0.0.0.0'  # Replace with the server's public IP address or hostname
     port = 5550
     global client_socket
     try:
